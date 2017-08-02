@@ -25,4 +25,13 @@ const todos = [
 export class AppComponent {
   title = 'Angular Todo';
   todos = todos;
+
+  toggle(todo: any) {
+    todo.completed = !todo.completed;
+  }
+
+  delete(todo: any) {
+    let index = todos.indexOf(todo);
+    todos.splice(index, 1);
+  }
 }
