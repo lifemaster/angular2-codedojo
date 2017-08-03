@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Todo } from '../shared/todo';
-import { todos } from '../shared/data';
 
 @Component({
   moduleId: module.id,
@@ -11,13 +10,13 @@ import { todos } from '../shared/data';
 })
 
 export class TodoListComponent {
-  todos: Todo[] = todos;
+  @Input() todos: Todo[];
 
   delete(todo: Todo) {
-    let index = todos.indexOf(todo);
+    let index = this.todos.indexOf(todo);
 
     if(index > -1) {
-      todos.splice(index, 1);
+      this.todos.splice(index, 1);
     }
   }
 }
