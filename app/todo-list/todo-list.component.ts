@@ -13,10 +13,6 @@ import { todos } from '../shared/data';
 export class TodoListComponent {
   todos: Todo[] = todos;
 
-  toggle(todo: Todo) {
-    todo.completed = !todo.completed;
-  }
-
   delete(todo: Todo) {
     let index = todos.indexOf(todo);
 
