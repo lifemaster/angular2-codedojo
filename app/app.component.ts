@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 class Todo {
-  title: string;
-  completed: boolean;
+  constructor(public title: string, public completed: boolean = false) {};
 }
 
 const todos: Todo[] = [
@@ -30,6 +29,13 @@ const todos: Todo[] = [
 export class AppComponent {
   title = 'Angular Todo';
   todos: Todo[] = todos;
+  newTodoTitle: string = '';
+
+  create() {
+    let todo = new Todo(this.newTodoTitle);
+    this.todos.push(todo);
+    this.newTodoTitle = '';
+  }
 
   toggle(todo: Todo) {
     todo.completed = !todo.completed;
